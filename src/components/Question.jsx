@@ -11,16 +11,16 @@ class Question extends React.Component {
     }
 
     componentDidMount() {
-        document.title = `${this.state.time}`;
         this.timerId = setInterval(() => {
             this.setState((state) => {
                 return {time: state.time - 1};
             });
         }, 1000);
+
+        document.title = `${this.state.time}`;
     }
 
     componentDidUpdate(prevProps) {
-        console.log(this.state.time);
         if (this.state.time > 0) {
             document.title = `${this.state.time}`
         } else {
