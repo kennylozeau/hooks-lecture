@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { formatQuestions } from '../utils/fetch_util';
+import { formatQuestions } from '../utils/format_util';
 import Question from './QuestionHooks';
 
 function Quiz() {
@@ -7,7 +7,7 @@ function Quiz() {
     const [currentQuestion, setCurrentQuestion]  = useState(0);
 
     useEffect(() => {
-        fetch('https://opentdb.com/api.php?amount=5&category=27&type=multiple')
+        fetch('https://opentdb.com/api.php?amount=51&category=27&type=multiple')
             .then(response => response.json())
             .then(data => {
                 let questions = formatQuestions(data);

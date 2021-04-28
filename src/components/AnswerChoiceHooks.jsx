@@ -13,7 +13,7 @@ function AnswerChoice(props) {
     return (
         <div
             className={'answer-choice'}
-            onClick={() => handleClick()}>
+            onClick={handleClick}>
             <p>{props.answer}</p>
         </div>
     )

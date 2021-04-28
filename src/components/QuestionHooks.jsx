@@ -2,24 +2,22 @@ import { useState, useEffect } from 'react';
 import AnswerChoice from './AnswerChoiceHooks';
 
 function Question(props) {
-
-    const [timer, setTimer] = useState(10);
+    const [time, setTime] = useState(10);
 
     useEffect(() => {
-        setTimer(10);
+        setTime(10);
     }, [props.trivia]);
 
     useEffect(() => {
         const timerId = setInterval(() => {
-            setTimer(prevTimer => prevTimer - 1);
+            setTime(prevTime => prevTime - 1);
         }, 1000);
 
-        console.log(timer);
-        if (timer > 0) {
-            document.title = `${timer}`
+        if (time > 0) {
+            document.title = `${time}`;
         } else {
             clearInterval(timerId);
-            document.title = "TIME'S UP! Hooks"
+            document.title = "TIME'S UP! Hooks";
         };
 
         return () => clearInterval(timerId);

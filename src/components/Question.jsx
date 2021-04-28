@@ -6,35 +6,35 @@ class Question extends React.Component {
         super(props);
 
         this.state = {
-            timer: 10
+            time: 10
         }
     }
 
     componentDidMount() {
-        document.title = `${this.state.timer}`;
+        document.title = `${this.state.time}`;
         this.timerId = setInterval(() => {
             this.setState((state) => {
-                return {timer: state.timer - 1};
+                return {time: state.time - 1};
             });
         }, 1000);
     }
 
     componentDidUpdate(prevProps) {
-        console.log(this.state.timer);
-        if (this.state.timer > 0) {
-            document.title = `${this.state.timer}`
+        console.log(this.state.time);
+        if (this.state.time > 0) {
+            document.title = `${this.state.time}`
         } else {
             clearInterval(this.timerId);
             document.title = "TIME'S UP!"
         };
 
         if (prevProps.trivia !== this.props.trivia) {
-            this.setState({timer: 10});
+            this.setState({time: 10});
 
             clearInterval(this.timerId);
             this.timerId = setInterval(() => {
                 this.setState((state) => {
-                    return { timer: state.timer - 1 };
+                    return { time: state.time - 1 };
                 });
             }, 1000);
         };

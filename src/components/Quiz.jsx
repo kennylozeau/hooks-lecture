@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatQuestions } from '../utils/fetch_util';
+import { formatQuestions } from '../utils/format_util';
 import Question from './Question';
 
 class Quiz extends React.Component {
@@ -15,7 +15,7 @@ class Quiz extends React.Component {
     }
 
     componentDidMount() {
-        fetch('https://opentdb.com/api.php?amount=5&category=27&type=multiple')
+        fetch('https://opentdb.com/api.php?amount=15&category=27&type=multiple')
             .then(response => response.json())
             .then(data => {
                 let questions = formatQuestions(data);
